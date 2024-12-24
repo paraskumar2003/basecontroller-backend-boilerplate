@@ -31,6 +31,14 @@ const app = express();
 import cors from "cors";
 app.use(cors());
 
+// configuring rate limiter
+import rateLimit from "express-rate-limit";
+app.use(rateLimit({
+    windowMs: 1000, // 1 second
+    max: 5, // limit each IP to 100 requests per windowMs,
+    message: "Too many requests"
+}));
+
 // adding the resource monitor
 app.use(statusMonitor); // see monitoring at :- http://localhost:4000/status
 

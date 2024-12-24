@@ -6,7 +6,7 @@ interface ApiError extends Error {
 }
 
 export interface DerivedClassResponse {
-    success: boolean;
+    success?: boolean;
     message: string;
     statusCode: 200 | 201 | 400 | 401 | 402 | 403 | 404 | 409 | 500 | 501 | 502 | 429;
     data: Record<string, any> | null;
@@ -19,10 +19,10 @@ class BaseController {
         this.res = res;
     }
 
-    handleResponse({ statusCode, success, message, data, error }: DerivedClassResponse) {
+    handleResponse({ statusCode, message, data, error }: DerivedClassResponse) {
 
         this.res.status(statusCode).json({
-            success,
+            success: [200, 201].includes(statusCode),
             message,
             data,
             error,

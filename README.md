@@ -1,1 +1,1 @@
-# wedsa-api
+# backend-template using typeorm
