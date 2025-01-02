@@ -31,7 +31,7 @@ const processJob = async (job: Job, done: any) => {
     }
 };
 
-listProcess_Guest.process(processJob);
+listProcess_Guest.process(5, processJob);
 
 listProcess_Guest.on('error', (error) => {
     console.error('Queue error:', error);
