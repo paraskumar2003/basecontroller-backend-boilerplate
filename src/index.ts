@@ -5,11 +5,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Connect MySQL database
-// import { connectMySql } from './connect/ormconfig';
+import { initialize } from './config/mysqlConfig';
 
 // Connect MongoDb Database
-import { connect } from './connect/mongoose';
-
+// import { connect } from './connect/mongoose';
 // Router
 import router from './routes';
 
@@ -26,6 +25,7 @@ const statusMonitor = require('express-status-monitor')();
 
 // declaring the express server
 const app = express();
+
 
 // configuring cross-origin
 import cors from "cors";
@@ -60,10 +60,10 @@ app.use(bodyParser.urlencoded(option));
 const PORT = process.env.PORT || 4000;
 
 //connect mysql
-// connectMySql();
+initialize();
 
 //connect mongo
-connect();
+// connect();
 
 
 // Redis Queue

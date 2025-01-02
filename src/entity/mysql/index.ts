@@ -1,4 +1,2 @@
-import Otp from './otp';
-import User from './user';
-
-export { Otp, User };
+export { Otp } from "./otp";
+export { User } from "./user";

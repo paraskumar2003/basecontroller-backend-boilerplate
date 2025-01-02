@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build/index.js",
     "dev": "nodemon --experimental-modules build/index.js",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "migration:generate": "npx ts-node node_modules/.bin/typeorm migration:generate src/migrations/userEntity -d src/config/dataSource.ts ",
+    "migration:generate:windows": "npx typeorm migration:generate src/migrations/migration -d src/config/dataSource.ts",
+    "migration:create": "npx ts-node node_modules/.bin/typeorm migration:create src/migrations/migration",
+    "migration:run": "npx ts-node node_modules/.bin/typeorm migration:run -d src/config/dataSource.ts ",
+    "migration:revert": "npx ts-node node_modules/.bin/typeorm migration:revert -d src/config/dataSource.ts "
   },
   "keywords": [],
   "author": "",

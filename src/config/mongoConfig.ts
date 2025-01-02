@@ -7,7 +7,6 @@ dotenv.config();
 export const connect = async () => {
 
     var uri: any;
-    console.log(process.env.NODE_ENV);
 
     if (process.env.NODE_ENV == "production") {
 

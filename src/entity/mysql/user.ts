@@ -8,7 +8,7 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, Index } from "typeo
 @Index(['email', 'mobile']) // Creates a composite index on the 'email' and 'mobile' columns to optimize queries that filter by both fields.
 @Index(['mobile']) // Creates an index on the 'mobile' column to optimize queries that filter by the 'mobile' field.
 
-export default class User extends BaseEntity {
+export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
@@ -20,6 +20,12 @@ export default class User extends BaseEntity {
 
     @Column()
     mobile!: string;
+
+    @Column({ type: 'varchar', length: 3, nullable: true })
+    age!: string;
+
+    @Column({ type: 'bool' })
+    hasVehicle!: boolean;
 
     @Column()
     password!: string;

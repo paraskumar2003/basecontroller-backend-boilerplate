@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 
 @Entity()
 
-export default class Otp extends BaseEntity {
+export class Otp extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
